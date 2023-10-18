@@ -41,5 +41,3 @@ function fetchLocationData() {
 
 window.onload = fetchLocationData;
 
-
-window.onload = fetchLocationData;
