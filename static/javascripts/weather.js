@@ -43,16 +43,17 @@ let getData = function(src){
         // 主畫面 > 總覽 > 圖片
         getWeatherIcon(weatherToday["wx"])
         overviewImg.style.backgroundImage = 'url(' + img + ')'
-        
+
         // 主畫面 > 總覽 > 資料 > 名字
         infoAreaName.innerText = data["location_name"];
         
-        // 主畫面 > 總覽 > 資料 > 時間
+        // 主畫面 > 總覽 > 資料 > 日期時間 > 日期
         let weatherDate = weatherToday["endTime"].slice(0,10)
         infoAreaDate.innerText = weatherDate;
-
+        
+        // 主畫面 > 總覽 > 資料 > 日期時間 > 時間
         infoAreaTime.innerText = weatherToday["descriptionTime"];
-        // console.log(weatherDate, weatherToday["descriptionTime"])
+
         // 主畫面 > 總覽 > 資料 > 細節 > 氣溫
         infoTemp_span.innerText = weatherToday["minT"] + " - " + weatherToday["maxT"]
 
@@ -133,7 +134,7 @@ let getWeekData = function(url){
     }).then((response) => {
         // console.log(response)
         detail = response["detail"]
-        console.log(detail)
+        // console.log(detail)
         for (i=0 ; i< detail.length; i++){
             // 主畫面 > 一周概括 > 每一天 > 星期幾
             let weekly_i_day = document.querySelector("#weekly_" + i + "_day")
@@ -176,23 +177,34 @@ const overviewInfo = document.createElement("div");
 overviewInfo.className = "overview__info"
 detailOverview.appendChild(overviewInfo)
 
+// 主畫面 > 總覽 > 資料 > 上排
+const infoMain = document.createElement("div")
+infoMain.className = "info__Main"
+overviewInfo.appendChild(infoMain)
+
 // 主畫面 > 總覽 > 資料 > 名字
 const infoAreaName = document.createElement("div");
 infoAreaName.className = "info__areaName";
 // infoAreaName.innerText = data["location_name"];
-overviewInfo.appendChild(infoAreaName)
+infoMain.appendChild(infoAreaName)
 
-// 主畫面 > 總覽 > 資料 > 時間
+// 主畫面 > 總覽 > 資料 > 日期時間
+const infoAreaDT = document.createElement("div");
+infoAreaDT.className = "info__areaDT"
+infoMain.appendChild(infoAreaDT)
+
+// 主畫面 > 總覽 > 資料 > 日期時間 > 日期
 const infoAreaDate = document.createElement("span");
-infoAreaDate.className = "info__areaName span";
+infoAreaDate.className = "info__areaDT span";
 // let weatherDate = weatherToday["endTime"].slice(0,10)
 // infoAreaDate.innerText = weatherDate;
-infoAreaName.appendChild(infoAreaDate)
+infoAreaDT.appendChild(infoAreaDate)
 
+// 主畫面 > 總覽 > 資料 > 日期時間 > 時間
 const infoAreaTime = document.createElement("span");
-infoAreaTime.className = "info__areaName span";
+infoAreaTime.className = "info__areaDT span";
 // infoAreaTime.innerText = weatherToday["descriptionTime"];
-infoAreaDate.appendChild(infoAreaTime)
+infoAreaDT.appendChild(infoAreaTime)
 
 // 主畫面 > 總覽 > 資料 > 細節
 const infoDetail = document.createElement("div");
