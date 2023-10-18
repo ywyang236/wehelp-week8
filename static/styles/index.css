@@ -20,12 +20,10 @@
     align-items: center;
     justify-content: space-between;
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .scroll-area__left-button {
-    background-image: url(/static/images/gray_left.svg);
+    background-image: url('/static/images/gray_left.svg');
     width: 32px;
     height: 32px;
     border-style: hidden;
@@ -40,7 +38,7 @@
 }
 
 .scroll-area__right-button {
-    background-image: url(/static/images/gray_right.svg);
+    background-image: url('/static/images/gray_right.svg');
     width: 32px;
     height: 32px;
     border-style: hidden;
@@ -74,14 +72,15 @@
     width: 1106px;
     min-width: 266px;
     font-size: 16px;
+    font-weight: 500;
 }
 
 .scroll-area__content-name {
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
 }
 
 .scroll-area__content-name:hover {
-    color: #448899;
+    color: #197AC8;
 }
 
 .main-information__container {
