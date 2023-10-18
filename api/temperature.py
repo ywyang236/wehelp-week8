@@ -60,8 +60,6 @@ def handleSpecialWeatherData(weather_data):
 
 def handleDataByTime(dataList):
     today = datetime.datetime.now()
-    # 5/11/17/23
-    print(dataList)
     startTime0 = dataList[0]['startTime']
     endTime0 = dataList[0]['endTime']
     timeDescription0 = startTime0[11:16] + '-' + endTime0[11:16]
