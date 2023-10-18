@@ -5,7 +5,7 @@
 
 .taiwan-area__svg {
   position: absolute;
-  top: 50px;
+  top: 20px;
   left: 50px;
 }
 
@@ -24,7 +24,8 @@
 .taiwan-area__block {
   cursor: pointer;
   outline: none;
-  fill: #7f9ca7;
+  fill: #60c7fa;
+  opacity: 0.8;
   transition: transform 0.4s;
 }
 
