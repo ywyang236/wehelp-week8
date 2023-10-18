@@ -52,6 +52,10 @@ def handleSpecialWeatherData(weather_data):
         weather_data['elementDescription'] = '最高溫度'
         weather_data['parameterDescription'] = weather_data['parameterName'] + '°C'
 
+    if weather_data['elementName'] == 'Wx':
+        weather_data['elementDescription'] = '天氣現象'
+        weather_data['parameterDescription'] = weather_data['parameterValue']
+    
     return weather_data
 
 def handleDataByTime(dataList):
@@ -126,6 +130,10 @@ def handleDataByTime(dataList):
             if elementName == 'MinT':
                 period['minT'] = data['parameterDescription']
                 period['minTTitle'] = data['elementDescription']
+
+            if elementName == 'Wx':
+                period['wx'] = data['parameterDescription']
+                period['wxTitle'] = data['elementDescription']
 
         # period['weatherData'] = periodWeatherData
 
