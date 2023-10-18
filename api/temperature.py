@@ -26,30 +26,29 @@ def getDailyData(location_name):
                 'parameterValue': parameter.get('parameterValue'),
                 'parameterUnit': parameter.get('parameterUnit')
             }
-
-            if new_data['parameterName'] == 'PoP':
-                new_data['elementDescription'] = '降雨機率'
-                new_data['parameterDescription'] = new_data['parameterName'] + '%'
-            # new_data = handleSpecialWeatherData(new_data)
+            
+            new_data = handleSpecialWeatherData(new_data)
 
             data_list.append(new_data)
-    # print(data_list)
+    
     new_weather_data = handleDataByTime(data_list)
+
+    
     return {
         'location_name': location_name,
         'weather_data': new_weather_data
     }
 
 def handleSpecialWeatherData(weather_data):
-    if weather_data['parameterName'] == 'PoP':
+    if weather_data['elementName'] == 'PoP':
         weather_data['elementDescription'] = '降雨機率'
         weather_data['parameterDescription'] = weather_data['parameterName'] + '%'
             
-    if weather_data['parameterName'] == 'MinT':
+    if weather_data['elementName'] == 'MinT':
         weather_data['elementDescription'] = '最低溫度'
         weather_data['parameterDescription'] = weather_data['parameterName'] + '°C'
 
-    if weather_data['parameterName'] == 'MaxT':
+    if weather_data['elementName'] == 'MaxT':
         weather_data['elementDescription'] = '最高溫度'
         weather_data['parameterDescription'] = weather_data['parameterName'] + '°C'
 
@@ -112,13 +111,26 @@ def handleDataByTime(dataList):
             periodEndTime = period['endTime']
             dataStartTime = data['startTime']
             dataEndTime = data['endTime']
+            elementName = data['elementName']
             if periodStartTime == dataStartTime and periodEndTime == dataEndTime:
                 periodWeatherData.append(data)
-        
-        period['weatherData'] = periodWeatherData
+
+            if elementName == 'PoP':
+                period['pop'] = data['parameterDescription']
+                period['popTitle'] = data['elementDescription']
+            
+            if elementName == 'MaxT':
+                period['maxT'] = data['parameterDescription']
+                period['maxTTitle'] = data['elementDescription']
+
+            if elementName == 'MinT':
+                period['minT'] = data['parameterDescription']
+                period['minTTitle'] = data['elementDescription']
+
+        # period['weatherData'] = periodWeatherData
 
     return periodType
-# getDailyData('嘉義縣')
+
 @temperature_app.route("/api/temperature")
 def get_daily_data():
     location_name = str(request.args.get("locationName", ""))
