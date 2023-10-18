@@ -61,55 +61,58 @@ def handleSpecialWeatherData(weather_data):
 def handleDataByTime(dataList):
     today = datetime.datetime.now()
     # 5/11/17/23
-    if today.hour < 5:
-         tomorrow = datetime.date(year=today.year, month=today.month, day=today.day-1)
-
-    tomorrow = datetime.date(year=today.year, month=today.month, day=today.day+1)
-    theDayAfterTomorrow = datetime.date(year=tomorrow.year, month=tomorrow.month, day=tomorrow.day+1)
-    period_type_one = [{
+    print(dataList)
+    startTime0 = dataList[0]['startTime']
+    endTime0 = dataList[0]['endTime']
+    timeDescription0 = startTime0[11:16] + '-' + endTime0[11:16]
+    startTime1 = dataList[1]['startTime']
+    endTime1 = dataList[1]['endTime']
+    timeDescription1 = startTime1[11:16] + '-' + endTime1[11:16]
+    startTime2 = dataList[2]['startTime']
+    endTime2 = dataList[2]['endTime']
+    timeDescription2 = startTime2[11:16] + '-' + endTime2[11:16]
+    period_type_one = [
+        {
             "description": "今日白天",
-            "startTime": today.strftime("%Y-%m-%d") + (' 12:00:00' if today.hour >= 11 else ' 06:00:00'),
-            "endTime": today.strftime("%Y-%m-%d") + ' 18:00:00',
-            "descriptionTime": ('12:00-18:00' if today.hour >= 11 else '06:00-18:00')
-        }, {
+            "startTime": startTime0,
+            "endTime": endTime0,
+            "descriptionTime": timeDescription0
+        },
+        {
             "description": "今夜至明晨",
-            "startTime": today.strftime("%Y-%m-%d") + ' 18:00:00',
-            "endTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "descriptionTime": '18:00-06:00'
-        }, {
+            "startTime": startTime1,
+            "endTime": endTime1,
+            "descriptionTime": timeDescription1
+        },
+        {
             "description": "明日白天",
-            "startTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "endTime": tomorrow.strftime("%Y-%m-%d") + ' 18:00:00',
-            "descriptionTime": '06:00-18:00'
+            "startTime": startTime2,
+            "endTime": endTime2,
+            "descriptionTime": timeDescription2
         }
     ]
 
     # 5-17是用period_type_one
     # 0-5點period_type_two要修正減一天時間，因為是前一天的23點更新資料的，要以前一天日期去計算
+
     period_type_two = [
         {
             "description": "今晚至明晨",
-            "startTime": (today.strftime("%Y-%m-%d") + ' 18:00:00' if today.hour < 23 else tomorrow.strftime("%Y-%m-%d") + ' 00:00:00'),
-            "endTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "descriptionTime": '18:00 - 06:00' if today.hour < 23 else ' 00:00 - 06:00'
+            "startTime": startTime0,
+            "endTime": endTime0,
+            "descriptionTime": timeDescription0
         },
-        # {
-        #     "description": "今晚至明晨",
-        #     "startTime": today.strftime("%Y-%m-%d") + ' 00:00:00',
-        #     "endTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-        #     "descriptionTime": '00:00 - 06:00'
-        # },
         {
             "description": "明日白天",
-            "startTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "endTime": tomorrow.strftime("%Y-%m-%d") + ' 18:00:00',
-            "descriptionTime": '06:00 - 18:00'
+            "startTime": startTime1,
+            "endTime": endTime1,
+            "descriptionTime": timeDescription1
         },
         {
             "description": "明夜至後天清晨",
-            "startTime": tomorrow.strftime("%Y-%m-%d") + ' 18:00:00',
-            "endTime": theDayAfterTomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "descriptionTime": '18:00 - 06:00'
+            "startTime": startTime2,
+            "endTime": endTime2,
+            "descriptionTime": timeDescription2
         }
     ]
 
