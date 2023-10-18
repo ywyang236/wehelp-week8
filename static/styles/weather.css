@@ -6,14 +6,10 @@
 }
 
 .content__weatherDetail--overview{
-    /* width: 400px;
-    height: 150px; */
     width: 500px;
     height: 150px;
     border-radius: 5px;
     box-shadow: 0 1px 5px 6px #18c9ff;
-    /* margin-top: 40px; */
-    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,20 +32,22 @@
     margin-left: 10px;
 }
 
+.info__Main{
+    display: flex;
+    justify-content: space-between;
+}
+
 .info__areaName{
     font-size: 40px;
     font-weight: 800;
-    display: flex;
     flex: 50%;
-    justify-content: space-between;
-    /* text-shadow: 0px 0px 10px #18c9ff; */
 }
 
-.info__areaName span{
+.info__areaDT{
+    flex: 50%;
     font-size: 20px;
     font-weight: 500;
     display: flex;
-    flex: 40%;
     flex-direction: column;
 }
 
@@ -68,33 +66,10 @@
     font-weight: 500;
 }
 
-#info__Rain{
-    margin-left: 20px;
-}
-
-/* .dn{ */
-    
-    /* display: flex; */
-    /* justify-content: space-between; */
-/* } */
-
-/* .line{
-    border-left: 5px solid #18c9ff;
-    border-image: linear-gradient(to bottom right, #b9efff, #066987) 5;
-    border-radius: 5px;
-    height: 300px;
-    margin-left: 85px;
-    flex: 30%;
-    margin-top: 30px;
-} */
-
 .dn__info{
     width: 500px;
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column; */
-    /* margin-left: 10px; */
-    /* flex: 60% */
     margin-top: 30px;
 }
 
@@ -104,8 +79,6 @@
     height: 130px;
     border-radius: 5px;
     box-shadow: 0 1px 5px 3px #41cbf5;
-    /* margin-top: 30px; */
-    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,7 +98,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: #41cbf5; */
     border-radius: 5px 0px 0px 5px;
     flex: 10%;
     font-weight: 700;
@@ -135,17 +107,11 @@
     color: white;
 }
 
-/* .night__time{
-    background-color: #066987;
-    background-color: #093d4d;
-} */
-
 .day__time span,
 .night__time span{
     flex: 20%;
     display: flex;
     align-items: center;
-    /* text-align: center; */
 }
 
 .day__info,
@@ -185,7 +151,6 @@
     border-radius: 5px;
     box-shadow: 0 1px 5px 2px #aad7e5;
     margin-top: 20px;
-    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -224,8 +189,3 @@
     height: 10%;
     font-weight: 400;
 }
-
-/* .weekly__Rain{
-    width: inherit;
-    height: 10%;
-} */
