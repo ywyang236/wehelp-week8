@@ -118,7 +118,7 @@ def handleDataByTime(dataList):
         period['weatherData'] = periodWeatherData
 
     return periodType
-getDailyData('嘉義縣')
+# getDailyData('嘉義縣')
 @temperature_app.route("/api/temperature")
 def get_daily_data():
     location_name = str(request.args.get("locationName", ""))
