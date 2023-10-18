@@ -54,12 +54,13 @@ def handleSpecialWeatherData(weather_data):
 
     if weather_data['elementName'] == 'Wx':
         weather_data['elementDescription'] = '天氣現象'
-        weather_data['parameterDescription'] = weather_data['parameterValue']
-    
+        weather_data['parameterDescription'] = weather_data['parameterValue'] 
+        weather_data['wxDescription'] = weather_data['parameterName']
     return weather_data
 
 def handleDataByTime(dataList):
     today = datetime.datetime.now()
+    # 5/11/17/23
     if today.hour < 5:
          tomorrow = datetime.date(year=today.year, month=today.month, day=today.day-1)
 
@@ -67,9 +68,9 @@ def handleDataByTime(dataList):
     theDayAfterTomorrow = datetime.date(year=tomorrow.year, month=tomorrow.month, day=tomorrow.day+1)
     period_type_one = [{
             "description": "今日白天",
-            "startTime": today.strftime("%Y-%m-%d") + ' 12:00:00',
+            "startTime": today.strftime("%Y-%m-%d") + (' 12:00:00' if today.hour >= 11 else ' 06:00:00'),
             "endTime": today.strftime("%Y-%m-%d") + ' 18:00:00',
-            "descriptionTime": '12:00-18:00'
+            "descriptionTime": ('12:00-18:00' if today.hour >= 11 else '06:00-18:00')
         }, {
             "description": "今夜至明晨",
             "startTime": today.strftime("%Y-%m-%d") + ' 18:00:00',
@@ -88,21 +89,27 @@ def handleDataByTime(dataList):
     period_type_two = [
         {
             "description": "今晚至明晨",
-            "startTime": today.strftime("%Y-%m-%d") + ' 00:00:00',
+            "startTime": (today.strftime("%Y-%m-%d") + ' 18:00:00' if today.hour < 23 else tomorrow.strftime("%Y-%m-%d") + ' 00:00:00'),
             "endTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "descriptionTime": '00:00-06:00'
+            "descriptionTime": '18:00 - 06:00' if today.hour < 23 else ' 00:00 - 06:00'
         },
+        # {
+        #     "description": "今晚至明晨",
+        #     "startTime": today.strftime("%Y-%m-%d") + ' 00:00:00',
+        #     "endTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
+        #     "descriptionTime": '00:00 - 06:00'
+        # },
         {
             "description": "明日白天",
             "startTime": tomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
             "endTime": tomorrow.strftime("%Y-%m-%d") + ' 18:00:00',
-            "descriptionTime": '06:00-18:00'
+            "descriptionTime": '06:00 - 18:00'
         },
         {
             "description": "明夜至後天清晨",
             "startTime": tomorrow.strftime("%Y-%m-%d") + ' 18:00:00',
             "endTime": theDayAfterTomorrow.strftime("%Y-%m-%d") + ' 06:00:00',
-            "descriptionTime": '18:00-06:00'
+            "descriptionTime": '18:00 - 06:00'
         }
     ]
 
@@ -119,21 +126,22 @@ def handleDataByTime(dataList):
             if periodStartTime == dataStartTime and periodEndTime == dataEndTime:
                 periodWeatherData.append(data)
 
-            if elementName == 'PoP':
-                period['pop'] = data['parameterDescription']
-                period['popTitle'] = data['elementDescription']
-            
-            if elementName == 'MaxT':
-                period['maxT'] = data['parameterDescription']
-                period['maxTTitle'] = data['elementDescription']
+                if elementName == 'PoP':
+                    period['pop'] = data['parameterDescription']
+                    period['popTitle'] = data['elementDescription']
+    
+                if elementName == 'MaxT':
+                    period['maxT'] = data['parameterDescription']
+                    period['maxTTitle'] = data['elementDescription']
 
-            if elementName == 'MinT':
-                period['minT'] = data['parameterDescription']
-                period['minTTitle'] = data['elementDescription']
+                if elementName == 'MinT':
+                    period['minT'] = data['parameterDescription']
+                    period['minTTitle'] = data['elementDescription']
 
-            if elementName == 'Wx':
-                period['wx'] = data['parameterDescription']
-                period['wxTitle'] = data['elementDescription']
+                if elementName == 'Wx':
+                    period['wx'] = data['parameterDescription']
+                    period['wxTitle'] = data['elementDescription']
+                    period['wxDescription'] = data['wxDescription']
 
         # period['weatherData'] = periodWeatherData
 
