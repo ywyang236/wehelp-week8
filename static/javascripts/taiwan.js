@@ -31,8 +31,10 @@ function handleMapClick(target) {
     }
 
     // call temperature
+    getData(`/api/temperature?locationName=${mapName}`);
 
     // call weekly_data_basic
+    getWeekData(`/api/weekly_basic_data?location_name=${mapName}`);
   }
 }
 
