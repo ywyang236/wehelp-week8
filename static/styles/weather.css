@@ -1,15 +1,19 @@
-/* svg{
-    height: 100%;
-    width: 100%;
-} */
+.weather-area__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .content__weatherDetail--overview{
-    width: 400px;
+    /* width: 400px;
+    height: 150px; */
+    width: 500px;
     height: 150px;
     border-radius: 5px;
     box-shadow: 0 1px 5px 6px #18c9ff;
-    margin-top: 40px;
-    margin-left: 40px;
+    /* margin-top: 40px; */
+    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,32 +72,40 @@
     margin-left: 20px;
 }
 
-.dn{
-    display: flex;
-}
+/* .dn{ */
+    
+    /* display: flex; */
+    /* justify-content: space-between; */
+/* } */
 
-.line{
+/* .line{
     border-left: 5px solid #18c9ff;
     border-image: linear-gradient(to bottom right, #b9efff, #066987) 5;
     border-radius: 5px;
-    height: 330px;
-    margin-left: 70px;
+    height: 300px;
+    margin-left: 85px;
+    flex: 30%;
     margin-top: 30px;
-}
+} */
 
 .dn__info{
+    width: 500px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    /* margin-left: 10px; */
+    /* flex: 60% */
+    margin-top: 30px;
 }
 
 .day,
 .night{
-    width: 300px;
+    width: 48%;
     height: 130px;
     border-radius: 5px;
     box-shadow: 0 1px 5px 3px #41cbf5;
-    margin-top: 40px;
-    margin-left: 40px;
+    /* margin-top: 30px; */
+    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -173,7 +185,7 @@
     border-radius: 5px;
     box-shadow: 0 1px 5px 2px #aad7e5;
     margin-top: 20px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
