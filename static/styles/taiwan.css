@@ -5,7 +5,6 @@
 
 .taiwan-area__svg {
   position: absolute;
-  top: 20px;
   left: 50px;
 }
 
@@ -24,13 +23,12 @@
 .taiwan-area__block {
   cursor: pointer;
   outline: none;
-  fill: #60c7fa;
-  opacity: 0.8;
+  fill: #e3f2fe;
   transition: transform 0.4s;
 }
 
 .taiwan-area__block:hover,
 .taiwan-area__block--active {
-  fill: url("#grad1");
+  fill: #61b9ff;
   transform: translate(-2px, -2px);
 }
