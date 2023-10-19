@@ -48,17 +48,21 @@ let getData = function (src) {
             infoAreaName.innerText = data["location_name"];
 
             // 主畫面 > 總覽 > 資料 > 日期時間 > 日期
-            let weatherDate = weatherToday["endTime"].slice(0, 10)
-            infoAreaDate.innerText = weatherDate;
+            let weatherDate = weatherToday["startTime"].slice(0, 10)
+            let yy = weatherDate.slice(0,4)
+            let mm = weatherDate.slice(5,7)
+            let dd = weatherDate.slice(8,10)
+            let cleanWeatherDate = yy + " - " + mm + " - " + dd
+            infoAreaDate.innerText = cleanWeatherDate;
 
             // 主畫面 > 總覽 > 資料 > 日期時間 > 時間
             infoAreaTime.innerText = weatherToday["descriptionTime"];
             const content_weatherDetail_overview = document.querySelector(".content__weatherDetail--overview")
             const info_areaDate = document.querySelector("#info__areaTime")
-            if (info_areaDate.innerText == "00:00-06:00") {
+            if (info_areaDate.innerText == "00:00 - 06:00") {
                 // content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #E3F2FE"
             }
-            else if (info_areaDate.innerText == "06:00-18:00") {
+            else if (info_areaDate.innerText == "06:00 - 18:00") {
                 // content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #E3F2FE"
             }
             else {
@@ -76,12 +80,12 @@ let getData = function (src) {
             const night__Period = document.querySelector("#night__Period")
             const night = document.querySelector(".night")
             const night__time = document.querySelector(".night__time")
-            if (night__Period.innerText == "00:00-06:00") {
+            if (night__Period.innerText == "00:00 - 06:00") {
                 night_time_t.innerText = "今夜明晨"
                 night__time.style.backgroundColor = "#021217"
                 // night.style.boxShadow = "0 1px 5px 2px #E3F2FE"
             }
-            else if (night__Period.innerText == "06:00-18:00") {
+            else if (night__Period.innerText == "06:00 - 18:00") {
                 night_time_t.innerText = "明日白天"
                 night__time.style.backgroundColor = "#16a8d4"
                 // night.style.boxShadow = "0 1px 5px 2px #E3F2FE"
@@ -108,12 +112,12 @@ let getData = function (src) {
             const day = document.querySelector(".day")
             // console.log(day__Period)
             const day__time = document.querySelector(".day__time")
-            if (day__Period.innerText == "00:00-06:00") {
+            if (day__Period.innerText == "00:00 - 06:00") {
                 day_time_t.innerText = "今夜明晨"
                 day__time.style.backgroundColor = "#021217"
                 // day.style.boxShadow = "0 1px 5px 2px #021217"
             }
-            else if (day__Period.innerText == "06:00-18:00") {
+            else if (day__Period.innerText == "06:00 - 18:00") {
                 day_time_t.innerText = "明日白天"
                 day__time.style.backgroundColor = "#16a8d4"
                 // day.style.boxShadow = "0 1px 5px 2px #E3F2FE"
@@ -162,6 +166,10 @@ let getWeekData = function (url) {
             }
         })
 }
+
+// 初始載入
+getData("/api/temperature?locationName=臺北市")
+getWeekData("/api/weekly_basic_data?location_name=臺北市")
 
 // 主畫面
 const weatherDetail = document.querySelector(".weather-area__container")
@@ -378,7 +386,3 @@ for (i = 0; i < 7; i++) {
     // weekly_i_Temp.innerText = "20° - 23°";
     weekly_i.appendChild(weekly_i_Temp)
 }
-
-// 初始載入
-getData("/api/temperature?locationName=臺北市")
-getWeekData("/api/weekly_basic_data?location_name=臺北市")
