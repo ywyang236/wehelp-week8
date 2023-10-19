@@ -27,6 +27,12 @@ function fetchLocationData() {
                         // 模擬對SVG元素的點擊事件
                         correspondingSVGElement.dispatchEvent(new Event('click', { bubbles: true }));
                     }
+
+                    // 移除其他 span 的 .active class
+                    document.querySelectorAll('.scroll-area__content-name').forEach(el => el.classList.remove('active'));
+
+                    // 給當前的 span 添加 .active class
+                    span.classList.add('active');
                 };
                 return span;
             });

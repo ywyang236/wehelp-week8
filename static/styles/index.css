@@ -81,6 +81,11 @@
 
 .scroll-area__content-name:hover {
     color: #16a8d4;
+    font-weight: 600;
+}
+
+.scroll-area__content-name.active {
+    color: #16a8d4;
 }
 
 .main-information__container {
@@ -104,5 +109,8 @@
 }
 
 @media (max-width: 640px) {
-    .scroll-area__content-container {margin-left: 0px; margin-right: 0px;}
+    .scroll-area__content-container {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }
