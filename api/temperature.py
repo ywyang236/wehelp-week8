@@ -62,13 +62,13 @@ def handleDataByTime(dataList):
     today = datetime.datetime.now()
     startTime0 = dataList[0]['startTime']
     endTime0 = dataList[0]['endTime']
-    timeDescription0 = startTime0[11:16] + '-' + endTime0[11:16]
+    timeDescription0 = startTime0[11:16] + ' - ' + endTime0[11:16]
     startTime1 = dataList[1]['startTime']
     endTime1 = dataList[1]['endTime']
-    timeDescription1 = startTime1[11:16] + '-' + endTime1[11:16]
+    timeDescription1 = startTime1[11:16] + ' - ' + endTime1[11:16]
     startTime2 = dataList[2]['startTime']
     endTime2 = dataList[2]['endTime']
-    timeDescription2 = startTime2[11:16] + '-' + endTime2[11:16]
+    timeDescription2 = startTime2[11:16] + ' - ' + endTime2[11:16]
     period_type_one = [
         {
             "description": "今日白天",
