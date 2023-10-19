@@ -48,7 +48,7 @@ let getData = function (src) {
             infoAreaName.innerText = data["location_name"];
 
             // 主畫面 > 總覽 > 資料 > 日期時間 > 日期
-            let weatherDate = weatherToday["endTime"].slice(0, 10)
+            let weatherDate = weatherToday["startTime"].slice(0, 10)
             let yy = weatherDate.slice(0,4)
             let mm = weatherDate.slice(5,7)
             let dd = weatherDate.slice(8,10)
