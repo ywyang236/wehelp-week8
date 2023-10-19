@@ -32,3 +32,28 @@
   fill: #16a8d4;
   transform: translate(-2px, -2px);
 }
+
+@media (max-width: 530px) {
+  .taiwan-area__container {height: 600px;}
+  .taiwan-area__svg {transform: scale(0.9) translateY(-90px);}
+}
+
+@media (max-width: 500px) {
+  .taiwan-area__container {height: 600px;}
+  .taiwan-area__svg {transform: scale(0.93) translateY(-100px);}
+}
+
+@media (max-width: 450px) {
+  .taiwan-area__container {height: 550px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-125px);}
+}
+
+@media (max-width: 400px) {
+  .taiwan-area__container {height: 480px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-170px);}
+}
+
+@media (max-width: 370px) {
+  .taiwan-area__container {height: 480px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-190px);}
+}

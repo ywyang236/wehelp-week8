@@ -11,6 +11,7 @@
     height: 200px;
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
@@ -133,6 +134,11 @@
     width: inherit;
 }
 
+#day__Temp br,
+#night__Temp br {
+    display: none;
+}
+
 .day__img,
 .night__img {
     background-size: 100%;
@@ -144,7 +150,7 @@
 
 .weekly {
     width: 580px;
-    height: 180px;
+    /* height: 180px; */
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -183,4 +189,37 @@
     width: inherit;
     height: 10%;
     font-weight: 400;
+}
+
+@media (max-width: 1200px) {
+    .main__container {width: 100%;}
+    .main-information__container {flex-wrap: wrap;}
+    .weather-area__container {width: 100%;}
+    .taiwan-area__container {width: 100%; justify-content: center;}
+    .taiwan-area__svg {position: static;}
+}
+
+@media (max-width: 640px) {
+    /* .scroll-area__content-container {margin-left: 0px; margin-right: 0px;} */
+    .content__weatherDetail--overview {width: 100%; margin-bottom: 10px}
+    .overview__img {height: 100%}
+    .info__Main {flex-direction: column;}
+    .info__areaDT {flex-direction: row; font-size: 15px; margin-top: 5px; flex: none;}
+    #info__areaTime {margin-left: 13px;}
+    .info__Detail {flex-direction: column;}
+    .title:last-child {margin-top: 5px;}
+    .title br {display: none;}
+    .content {margin-left: 10px;}
+    #info__temp span {margin-left: 46px;}
+    .dn {width: 100%;}
+    .dn__info {width: 100%;}
+    #day__Temp br, #night__Temp br {display: block;}
+    .weekly {width: 100%; flex-wrap: wrap;}
+    .weekly__each {flex: 25%;}
+    #weekly__4, #weekly__5, #weekly__6 {margin-top: 20px;}
+    .weekly__img {height: 120px;}
+}
+
+@media (max-width: 500px) {
+    .weekly__img {height: 100px;}
 }
