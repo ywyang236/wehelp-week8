@@ -19,6 +19,11 @@ function fetchLocationData() {
                 const span = document.createElement('span');
                 span.textContent = item.name;
                 span.className = 'scroll-area__content-name';
+
+                if (item.name === "臺北市") {
+                    span.classList.add('active');
+                }
+
                 span.onclick = function () {
                     // 找到對應的SVG元素
                     let correspondingSVGElement = document.querySelector(`[name="${item.name}"]`);
