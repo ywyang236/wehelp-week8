@@ -199,7 +199,6 @@
 }
 
 @media (max-width: 640px) {
-    /* .scroll-area__content-container {margin-left: 0px; margin-right: 0px;} */
     .content__weatherDetail--overview {width: 100%; margin-bottom: 10px}
     .overview__img {height: 100%}
     .info__Main {flex-direction: column;}
