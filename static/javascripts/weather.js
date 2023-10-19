@@ -277,7 +277,7 @@ night_info.appendChild(nightPeriod);
 // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 氣溫
 const nightTemp = document.createElement("div");
 nightTemp.id = "night__Temp";
-nightTemp.innerHTML = `<div>氣溫：<span></span></div>`;
+nightTemp.innerHTML = `<div>氣溫：<br/><span></span></div>`;
 night_info.appendChild(nightTemp);
 const nightTemp_span = document.querySelector("#night__Temp span");
 // nightTemp_span.innerText = weatherNight["minT"] + " - " + weatherNight["maxT"];
@@ -324,7 +324,7 @@ day_info.appendChild(dayPeriod);
 // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 氣溫
 const dayTemp = document.createElement("div");
 dayTemp.id = "day__Temp";
-dayTemp.innerHTML = `<div>氣溫：<span></span></div>`;
+dayTemp.innerHTML = `<div>氣溫：<br/><span></span></div>`;
 day_info.appendChild(dayTemp);
 const dayTemp_span = document.querySelector("#day__Temp span");
 // dayTemp_span.innerText = weatherTmr["minT"] + " - " + weatherTmr["maxT"];

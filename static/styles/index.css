@@ -102,3 +102,7 @@
     width: 50%;
     padding: 0px 15px 0px 15px;
 }
+
+@media (max-width: 640px) {
+    .scroll-area__content-container {margin-left: 0px; margin-right: 0px;}
+}
