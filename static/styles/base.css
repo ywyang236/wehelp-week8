@@ -20,7 +20,7 @@ h2 {
 }
 
 .navigation {
-    background-color: #197AC8;
+    background-color: #16a8d4;
     border-bottom: 1px solid #e5e5e5;
     width: 100vw;
     height: 54px;
@@ -73,4 +73,100 @@ footer {
     align-items: center;
     justify-content: center;
     font-weight: bold;
+}
+
+
+.loading_screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wave {
+    position: relative;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wave_text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #448899;
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.wave>div {
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to bottom, #448899, #66AABB);
+    animation: waveAnim 1s infinite ease-in-out;
+    transform-origin: center;
+    border-radius: 5px;
+}
+
+.wave>div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.wave>div:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.wave>div:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.wave>div:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes waveAnim {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.5);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.wave_dot {
+    opacity: 0;
+    animation: fadeIn 1s infinite;
+    padding: 2px;
+}
+
+.wave_dot:nth-child(1) {
+    animation-delay: 0.25s;
+}
+
+.wave_dot:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.wave_dot:nth-child(3) {
+    animation-delay: 0.75s;
 }

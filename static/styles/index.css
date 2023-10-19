@@ -23,7 +23,7 @@
 }
 
 .scroll-area__left-button {
-    background-image: url('/static/images/gray_left.svg');
+    background-image: url('/static/images/index/gray_left.svg');
     width: 32px;
     height: 32px;
     border-style: hidden;
@@ -34,11 +34,11 @@
 }
 
 .scroll-area__left-button:hover {
-    background-image: url('/static/images/black_left.svg');
+    background-image: url('/static/images/index/black_left.svg');
 }
 
 .scroll-area__right-button {
-    background-image: url('/static/images/gray_right.svg');
+    background-image: url('/static/images/index/gray_right.svg');
     width: 32px;
     height: 32px;
     border-style: hidden;
@@ -49,7 +49,7 @@
 }
 
 .scroll-area__right-button:hover {
-    background-image: url('/static/images/black_right.svg');
+    background-image: url('/static/images/index/black_right.svg');
 }
 
 

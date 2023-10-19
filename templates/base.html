@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>氣象資訊站</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/base/favicon.ico') }}" type="image/x-icon">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
     <link rel="stylesheet" href="{{ css_link }}">
@@ -13,6 +14,18 @@
 </head>
 
 <body>
+    <div class="loading_screen">
+        <div class="wave">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="wave_text">
+            Loading <span class="wave_dot">.</span><span class="wave_dot">.</span><span class="wave_dot">.</span>
+        </div>
+    </div>
     <div class="navigation">
         <div class="navigation_container">
             <div class="navigation_left">
