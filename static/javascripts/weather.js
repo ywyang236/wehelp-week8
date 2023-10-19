@@ -29,16 +29,16 @@ let getWeatherIcon = function (wx) {
 // 一天預報
 let getData = function (src) {
     fetch(src)
-        .then((res) => {
-            return res.json()
-        }).then((data) => {
-            console.log(data)
-            let weatherData = data["weather_data"]
-            // console.log(weatherData)
-            weatherToday = weatherData["0"]
-            weatherNight = weatherData["1"]
-            weatherTmr = weatherData["2"]
-            // console.log(weatherToday, weatherNight, weatherTmr)
+    .then((res) => {
+        return res.json()
+    }).then((data) => {
+        console.log(data)
+        let weatherData = data["weather_data"]
+        // console.log(weatherData)
+        weatherToday = weatherData["0"]
+        weatherNight = weatherData["1"]
+        weatherTmr = weatherData["2"]
+        // console.log(weatherToday, weatherNight, weatherTmr)
 
             // 主畫面 > 總覽 > 圖片
             getWeatherIcon(weatherToday["wx"])
