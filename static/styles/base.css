@@ -7,6 +7,10 @@
     font-family: Noto Sans TC;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 h2 {
     font-size: 30px;
     line-height: 34px;
@@ -30,6 +34,7 @@ h2 {
     justify-content: center;
     align-items: center;
     z-index: 100;
+    display: none;
 }
 
 .navigation_container {
@@ -69,10 +74,16 @@ footer {
     background-color: #b8b8b8;
     color: white;
     display: flex;
-    height: 104px;
-    align-items: center;
+    /* height: 104px; */
+    /* align-items: center; */
     justify-content: center;
     font-weight: bold;
+    margin-top: auto;
+    min-height: calc(100vh - 104px);
+}
+
+footer p {
+    margin-top: 40px;
 }
 
 
