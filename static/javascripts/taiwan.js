@@ -57,3 +57,17 @@ taiwanMap.addEventListener("click", function (e) {
 
 // initial load
 handleMapClick(document.querySelector(".taiwan-area__block[name='臺北市']"));
+
+// adjust mouse position
+function adjustMousePosition() {
+  let target = document.querySelector(".taiwan-area__block--active");
+  if (target) {
+    let bbox = target.getBoundingClientRect();
+    let relX = bbox.x - taiwanMap.getBoundingClientRect().x;
+    let relY = bbox.y - taiwanMap.getBoundingClientRect().y;
+
+    mouseDiv.style.left = `${relX}px`;
+    mouseDiv.style.top = `${relY}px`;
+  }
+}
+window.addEventListener("resize", adjustMousePosition);

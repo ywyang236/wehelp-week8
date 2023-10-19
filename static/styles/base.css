@@ -7,12 +7,11 @@
     font-family: Noto Sans TC;
 }
 
-body {
+body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
-    /* hide horizontal scroll bar */
 }
 
 h2 {
@@ -78,16 +77,12 @@ footer {
     background-color: #b8b8b8;
     color: white;
     display: flex;
+    height: 104px;
+    align-items: center;
     justify-content: center;
     font-weight: bold;
     margin-top: auto;
-    min-height: calc(100vh - 104px);
 }
-
-footer p {
-    margin-top: 40px;
-}
-
 
 .loading_screen {
     position: fixed;
