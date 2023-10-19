@@ -29,6 +29,20 @@ function handleMapClick(target) {
     } else {
       target.classList.add("taiwan-area__block--active");
     }
+
+    // update scroll-area item status
+    document.querySelectorAll(".scroll-area__content-name").forEach((el) => {
+      el.classList.remove("active");
+      if (el.textContent === mapName) {
+        el.classList.add("active");
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "start",
+        });
+      }
+    });
+
     // call temperature
     getData(`/api/temperature?locationName=${mapName}`);
 
