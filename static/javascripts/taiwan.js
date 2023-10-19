@@ -29,7 +29,6 @@ function handleMapClick(target) {
     } else {
       target.classList.add("taiwan-area__block--active");
     }
-
     // call temperature
     getData(`/api/temperature?locationName=${mapName}`);
 
@@ -41,3 +40,6 @@ function handleMapClick(target) {
 taiwanMap.addEventListener("click", function (e) {
   handleMapClick(e.target);
 });
+
+// initial load
+handleMapClick(document.querySelector(".taiwan-area__block[name='臺北市']"));
