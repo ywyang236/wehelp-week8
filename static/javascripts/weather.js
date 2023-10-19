@@ -1,28 +1,54 @@
 // 天氣圖像
-let getWeatherIcon = function (wx) {
+let getWeatherIcon = function (wx,t) {
     wx = parseInt(wx)
-    // console.log(wx)
-    if ([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)) {
-        img = "/static/images/weather/isThunderstorm.svg"
+    // console.log(wx,t)
+    if (t == "06:00 - 18:00"){
+        if ([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)) {
+            img = "/static/images/weather/isThunderstorm.svg"
+        }
+        else if ([1].includes(wx)) {
+            img = "/static/images/weather/isClear.svg"
+        }
+        else if ([25, 26, 27, 28].includes(wx)) {
+            img = "/static/images/weather/isCloudyFog.svg"
+        }
+        else if ([2, 3, 4, 5, 6, 7].includes(wx)) {
+            img = "/static/images/weather/isCloudy.svg"
+        }
+        else if ([24].includes(wx)) {
+            img = "/static/images/weather/isFog.svg"
+        }
+        else if ([8, 9, 10, 11, 12, 13, 14, 19, 20, 29, 30, 31, 32, 38, 39].includes(wx)) {
+            img = "/static/images/weather/isPartiallyClearWithRain.svg"
+        }
+        else if ([23, 37, 42].includes(wx)) {
+            img = "/static/images/weather/isSnowing.svg"
+        }
     }
-    else if ([1].includes(wx)) {
-        img = "/static/images/weather/isClear.svg"
+    else {
+        if ([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)) {
+            img = "/static/images/weather/isThunderstormN.svg"
+        }
+        else if ([1].includes(wx)) {
+            img = "/static/images/weather/isClearN.svg"
+        }
+        else if ([25, 26, 27, 28].includes(wx)) {
+            img = "/static/images/weather/isCloudyFogN.svg"
+        }
+        else if ([2, 3, 4, 5, 6, 7].includes(wx)) {
+            img = "/static/images/weather/isCloudyN.svg"
+        }
+        else if ([24].includes(wx)) {
+            img = "/static/images/weather/isFogN.svg"
+        }
+        else if ([8, 9, 10, 11, 12, 13, 14, 19, 20, 29, 30, 31, 32, 38, 39].includes(wx)) {
+            img = "/static/images/weather/isPartiallyClearWithRainN.svg"
+        }
+        else if ([23, 37, 42].includes(wx)) {
+            img = "/static/images/weather/isSnowing.svg"
+        }
     }
-    else if ([25, 26, 27, 28].includes(wx)) {
-        img = "/static/images/weather/isCloudyFog.svg"
-    }
-    else if ([2, 3, 4, 5, 6, 7].includes(wx)) {
-        img = "/static/images/weather/isCloudy.svg"
-    }
-    else if ([24].includes(wx)) {
-        img = "/static/images/weather/isFog.svg"
-    }
-    else if ([8, 9, 10, 11, 12, 13, 14, 19, 20, 29, 30, 31, 32, 38, 39].includes(wx)) {
-        img = "/static/images/weather/isPartiallyClearWithRain.svg"
-    }
-    else if ([23, 37, 42].includes(wx)) {
-        img = "/static/images/weather/isSnowing.svg"
-    }
+    
     return img
 }
 
@@ -41,7 +67,7 @@ let getData = function (src) {
         // console.log(weatherToday, weatherNight, weatherTmr)
 
             // 主畫面 > 總覽 > 圖片
-            getWeatherIcon(weatherToday["wx"])
+            getWeatherIcon(weatherToday["wx"], weatherToday["descriptionTime"])
             overviewImg.style.backgroundImage = 'url(' + img + ')'
 
             // 主畫面 > 總覽 > 資料 > 名字
@@ -157,7 +183,7 @@ let getWeekData = function (url) {
 
                 // 主畫面 > 一周概括 > 每一天 > 圖片
                 let weekly_i_img = document.querySelector("#weekly_" + i + "_img")
-                getWeatherIcon(detail[i]["weatherCode"])
+                getWeatherIcon(detail[i]["weatherCode"], "06:00 - 18:00")
                 weekly_i_img.style.backgroundImage = 'url(' + img + ')';
 
                 // 主畫面 > 一周概括 > 每一天 > 氣溫
