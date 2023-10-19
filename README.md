@@ -3,6 +3,24 @@
 <font size="5">網址：http://34.214.175.62:3500/</font><br/>
 <font size="5">組員：楊于葳（組長）、徐欣彤、陳佳欣、張嘉媛、丁育如</font>
 
+## Demo
+
+- 點擊地圖後左側會顯示相對應的資料
+
+<img src="static/images/readme/taiwan.gif" width="600px" />
+
+- 可根據上方列表選擇顯示，且地圖選擇可同時連動更新至列表
+
+<img src="static/images/readme/location-list.gif" width="600px" />
+
+- RWD 頁面展示（1200px 以下）
+
+<img src="static/images/readme/rwd-1200.gif" width="400px" />
+
+- RWD 頁面展示（640px 以下）
+
+<img src="static/images/readme/rwd-640.gif" width="400px" />
+
 ## 組內分工
 - 組長／楊于葳 [<img src="static/images/readme/link.png" style="line-height:18px" height="18px"/>](https://github.com/ywyang236)
     - 取得團隊信任
@@ -32,21 +50,3 @@
     - 地圖繪製：負責繪製臺灣地圖，包括離島區域
     - 地圖互動及分群：開發互動功能，點擊特定地區時同時選取相關地區（例如：點擊臺東縣選擇臺東、綠島、蘭嶼）
     - 地圖連動行政區捲軸：實現捲軸功能，以實現地圖的行政區連動
-
-## Demo
-
-- 點擊地圖後左側會顯示相對應的資料
-
-<img src="static/images/readme/taiwan.gif" width="800px" />
-
-- 可根據上方列表選擇顯示，且地圖選擇可同時連動更新至列表
-
-<img src="static/images/readme/location-list.gif" width="800px" />
-
-- RWD 頁面展示（1200px 以下）
-
-<img src="static/images/readme/rwd-1200.gif" width="400px" />
-
-- RWD 頁面展示（640px 以下）
-
-<img src="static/images/readme/rwd-640.gif" width="400px" />
