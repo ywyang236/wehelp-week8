@@ -1,11 +1,13 @@
 .taiwan-area__container {
-  height: 100vh;
+  height: 610px;
   position: relative;
+  overflow: hidden;
 }
 
 .taiwan-area__svg {
   position: absolute;
   left: 50px;
+  transform: scale(0.9) translateY(-90px);
 }
 
 .taiwan-area__mouse {
@@ -29,6 +31,6 @@
 
 .taiwan-area__block:hover,
 .taiwan-area__block--active {
-  fill: #61b9ff;
+  fill: #16a8d4;
   transform: translate(-2px, -2px);
 }

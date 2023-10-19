@@ -1,166 +1,166 @@
 // 天氣圖像
-let getWeatherIcon = function(wx){
+let getWeatherIcon = function (wx) {
     wx = parseInt(wx)
     // console.log(wx)
-    if([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)){
+    if ([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)) {
         img = "/static/images/weather/isThunderstorm.svg"
     }
-    else if([1].includes(wx)){
+    else if ([1].includes(wx)) {
         img = "/static/images/weather/isClear.svg"
     }
-    else if([25, 26, 27, 28].includes(wx)){
+    else if ([25, 26, 27, 28].includes(wx)) {
         img = "/static/images/weather/isCloudyFog.svg"
     }
-    else if([2, 3, 4, 5, 6, 7].includes(wx)){
+    else if ([2, 3, 4, 5, 6, 7].includes(wx)) {
         img = "/static/images/weather/isCloudy.svg"
     }
-    else if([24].includes(wx)){
+    else if ([24].includes(wx)) {
         img = "/static/images/weather/isFog.svg"
     }
-    else if([8, 9, 10, 11, 12, 13, 14, 19, 20, 29, 30, 31, 32, 38, 39].includes(wx)){
+    else if ([8, 9, 10, 11, 12, 13, 14, 19, 20, 29, 30, 31, 32, 38, 39].includes(wx)) {
         img = "/static/images/weather/isPartiallyClearWithRain.svg"
     }
-    else if([23, 37, 42].includes(wx)){
+    else if ([23, 37, 42].includes(wx)) {
         img = "/static/images/weather/isSnowing.svg"
     }
     return img
 }
 
 // 一天預報
-let getData = function(src){
+let getData = function (src) {
     fetch(src)
-    .then((res) => {
-        return res.json()
-    }).then((data) => {
-        console.log(data)
-        let weatherData = data["weather_data"]
-        // console.log(weatherData)
-        weatherToday = weatherData["0"]
-        weatherNight = weatherData["1"]
-        weatherTmr = weatherData["2"]
-        // console.log(weatherToday, weatherNight, weatherTmr)
+        .then((res) => {
+            return res.json()
+        }).then((data) => {
+            console.log(data)
+            let weatherData = data["weather_data"]
+            // console.log(weatherData)
+            weatherToday = weatherData["0"]
+            weatherNight = weatherData["1"]
+            weatherTmr = weatherData["2"]
+            // console.log(weatherToday, weatherNight, weatherTmr)
 
-        // 主畫面 > 總覽 > 圖片
-        getWeatherIcon(weatherToday["wx"])
-        overviewImg.style.backgroundImage = 'url(' + img + ')'
+            // 主畫面 > 總覽 > 圖片
+            getWeatherIcon(weatherToday["wx"])
+            overviewImg.style.backgroundImage = 'url(' + img + ')'
 
-        // 主畫面 > 總覽 > 資料 > 名字
-        infoAreaName.innerText = data["location_name"];
-        
-        // 主畫面 > 總覽 > 資料 > 日期時間 > 日期
-        let weatherDate = weatherToday["endTime"].slice(0,10)
-        infoAreaDate.innerText = weatherDate;
-        
-        // 主畫面 > 總覽 > 資料 > 日期時間 > 時間
-        infoAreaTime.innerText = weatherToday["descriptionTime"];
-        const content_weatherDetail_overview = document.querySelector(".content__weatherDetail--overview")
-        const info_areaDate = document.querySelector("#info__areaTime")
-        if(info_areaDate.innerText == "00:00-06:00"){
-            content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #021217"
-        }
-        else if(info_areaDate.innerText == "06:00-18:00"){
-            content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #16a8d4"
-        }
-        else{
-            content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #093d4d"
-        }
+            // 主畫面 > 總覽 > 資料 > 名字
+            infoAreaName.innerText = data["location_name"];
 
-        // 主畫面 > 總覽 > 資料 > 細節 > 氣溫
-        infoTemp_span.innerText = weatherToday["minT"] + " - " + weatherToday["maxT"]
+            // 主畫面 > 總覽 > 資料 > 日期時間 > 日期
+            let weatherDate = weatherToday["endTime"].slice(0, 10)
+            infoAreaDate.innerText = weatherDate;
 
-        // 主畫面 > 總覽 > 資料 > 細節 > 降雨量
-        infoRain_span.innerText = weatherToday["pop"]
+            // 主畫面 > 總覽 > 資料 > 日期時間 > 時間
+            infoAreaTime.innerText = weatherToday["descriptionTime"];
+            const content_weatherDetail_overview = document.querySelector(".content__weatherDetail--overview")
+            const info_areaDate = document.querySelector("#info__areaTime")
+            if (info_areaDate.innerText == "00:00-06:00") {
+                // content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
+            else if (info_areaDate.innerText == "06:00-18:00") {
+                // content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
+            else {
+                // content_weatherDetail_overview.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
 
-        // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 時段
-        nightPeriod.innerText = weatherNight["descriptionTime"];
-        const night__Period = document.querySelector("#night__Period")
-        const night = document.querySelector(".night")
-        const night__time = document.querySelector(".night__time")
-        if(night__Period.innerText == "00:00-06:00"){
-            night_time_t.innerText = "今夜明晨"
-            night__time.style.backgroundColor = "#021217"
-            night.style.boxShadow = "0 1px 5px 2px #021217"
-        }
-        else if(night__Period.innerText == "06:00-18:00"){
-            night_time_t.innerText = "明日白天"
-            night__time.style.backgroundColor = "#16a8d4"
-            night.style.boxShadow = "0 1px 5px 2px #16a8d4"
-        }
-        else{
-            night_time_t.innerText = "晚上清晨"
-            night__time.style.backgroundColor = "#093d4d"
-            night.style.boxShadow = "0 1px 5px 2px #093d4d"
-        }
+            // 主畫面 > 總覽 > 資料 > 細節 > 氣溫
+            infoTemp_span.innerText = weatherToday["minT"] + " - " + weatherToday["maxT"]
 
-        // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 氣溫
-        nightTemp_span.innerText = weatherNight["minT"] + " - " + weatherNight["maxT"];
+            // 主畫面 > 總覽 > 資料 > 細節 > 降雨量
+            infoRain_span.innerText = weatherToday["pop"]
 
-        // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 降雨
-        nightRain_span.innerText = weatherNight["pop"];
+            // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 時段
+            nightPeriod.innerText = weatherNight["descriptionTime"];
+            const night__Period = document.querySelector("#night__Period")
+            const night = document.querySelector(".night")
+            const night__time = document.querySelector(".night__time")
+            if (night__Period.innerText == "00:00-06:00") {
+                night_time_t.innerText = "今夜明晨"
+                night__time.style.backgroundColor = "#021217"
+                // night.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
+            else if (night__Period.innerText == "06:00-18:00") {
+                night_time_t.innerText = "明日白天"
+                night__time.style.backgroundColor = "#16a8d4"
+                // night.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
+            else {
+                night_time_t.innerText = "晚上清晨"
+                night__time.style.backgroundColor = "#093d4d"
+                // night.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
 
-        // // 主畫面 > 細節 > 詳情 > 晚上 > 圖片
-        // getWeatherIcon(weatherNight["wx"])
-        // nightImg.style.backgroundImage = 'url(' + img + ')'
+            // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 氣溫
+            nightTemp_span.innerText = weatherNight["minT"] + " - " + weatherNight["maxT"];
 
-        // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 時段
-        dayPeriod.innerText = weatherTmr["descriptionTime"];
-        const day__Period = document.querySelector("#day__Period")
-        const day = document.querySelector(".day")
-        // console.log(day__Period)
-        const day__time = document.querySelector(".day__time")
-        if(day__Period.innerText == "00:00-06:00"){
-            day_time_t.innerText = "今夜明晨"
-            day__time.style.backgroundColor = "#021217"
-            day.style.boxShadow = "0 1px 5px 2px #021217"
-        }
-        else if(day__Period.innerText == "06:00-18:00"){
-            day_time_t.innerText = "明日白天"
-            day__time.style.backgroundColor = "#16a8d4"
-            day.style.boxShadow = "0 1px 5px 2px #16a8d4"
-        }
-        else{
-            day_time_t.innerText = "晚上清晨"
-            day__time.style.backgroundColor = "#093d4d"
-            day.style.boxShadow = "0 1px 5px 2px #093d4d"
-        }
+            // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 降雨
+            nightRain_span.innerText = weatherNight["pop"];
 
-        // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 氣溫
-        dayTemp_span.innerText = weatherTmr["minT"] + " - " + weatherTmr["maxT"];
+            // // 主畫面 > 細節 > 詳情 > 晚上 > 圖片
+            // getWeatherIcon(weatherNight["wx"])
+            // nightImg.style.backgroundImage = 'url(' + img + ')'
 
-        // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 降雨
-        dayRain_span.innerText = weatherTmr["pop"];
+            // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 時段
+            dayPeriod.innerText = weatherTmr["descriptionTime"];
+            const day__Period = document.querySelector("#day__Period")
+            const day = document.querySelector(".day")
+            // console.log(day__Period)
+            const day__time = document.querySelector(".day__time")
+            if (day__Period.innerText == "00:00-06:00") {
+                day_time_t.innerText = "今夜明晨"
+                day__time.style.backgroundColor = "#021217"
+                // day.style.boxShadow = "0 1px 5px 2px #021217"
+            }
+            else if (day__Period.innerText == "06:00-18:00") {
+                day_time_t.innerText = "明日白天"
+                day__time.style.backgroundColor = "#16a8d4"
+                // day.style.boxShadow = "0 1px 5px 2px #E3F2FE"
+            }
+            else {
+                day_time_t.innerText = "晚上清晨"
+                day__time.style.backgroundColor = "#20496B"
+                // day.style.boxShadow = "0 1px 5px 2px #093d4d"
+            }
 
-        // // 主畫面 > 細節 > 詳情 > 白天 > 圖片
-        // getWeatherIcon(weatherTmr["wx"])
-        // dayImg.style.backgroundImage = 'url(' + img + ')'
-    })
+            // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 氣溫
+            dayTemp_span.innerText = weatherTmr["minT"] + " - " + weatherTmr["maxT"];
+
+            // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 降雨
+            dayRain_span.innerText = weatherTmr["pop"];
+
+            // // 主畫面 > 細節 > 詳情 > 白天 > 圖片
+            // getWeatherIcon(weatherTmr["wx"])
+            // dayImg.style.backgroundImage = 'url(' + img + ')'
+        })
 }
 
 // 一周預報
-let getWeekData = function(url){
+let getWeekData = function (url) {
     fetch(url)
-    .then((result) => {
-        return result.json()
-    }).then((response) => {
-        // console.log(response)
-        detail = response["detail"]
-        // console.log(detail)
-        for (i=0 ; i< detail.length; i++){
-            // 主畫面 > 一周概括 > 每一天 > 星期幾
-            let weekly_i_day = document.querySelector("#weekly_" + i + "_day")
-            // console.log(weekly_i_day)
-            weekly_i_day.innerText = detail[i]["endWeek"]
+        .then((result) => {
+            return result.json()
+        }).then((response) => {
+            // console.log(response)
+            detail = response["detail"]
+            // console.log(detail)
+            for (i = 0; i < detail.length; i++) {
+                // 主畫面 > 一周概括 > 每一天 > 星期幾
+                let weekly_i_day = document.querySelector("#weekly_" + i + "_day")
+                // console.log(weekly_i_day)
+                weekly_i_day.innerText = detail[i]["endWeek"]
 
-            // 主畫面 > 一周概括 > 每一天 > 圖片
-            let weekly_i_img = document.querySelector("#weekly_" + i + "_img")
-            getWeatherIcon(detail[i]["weatherCode"])
-            weekly_i_img.style.backgroundImage = 'url(' + img + ')';
+                // 主畫面 > 一周概括 > 每一天 > 圖片
+                let weekly_i_img = document.querySelector("#weekly_" + i + "_img")
+                getWeatherIcon(detail[i]["weatherCode"])
+                weekly_i_img.style.backgroundImage = 'url(' + img + ')';
 
-            // 主畫面 > 一周概括 > 每一天 > 氣溫
-            let weekly_i_Temp = document.querySelector("#weekly_" + i + "_Temp")
-            weekly_i_Temp.innerText = detail[i]["temperature"];
-        }
-    })
+                // 主畫面 > 一周概括 > 每一天 > 氣溫
+                let weekly_i_Temp = document.querySelector("#weekly_" + i + "_Temp")
+                weekly_i_Temp.innerText = detail[i]["temperature"];
+            }
+        })
 }
 
 // 主畫面
@@ -349,7 +349,7 @@ const weekly = document.createElement("div")
 weekly.className = "weekly"
 weatherDetail.appendChild(weekly)
 
-for (i=0 ; i<7 ; i++){
+for (i = 0; i < 7; i++) {
     // 主畫面 > 一周概括 > 每一天
     const weekly_i = document.createElement("div")
     weekly_i.className = "weekly__each"
