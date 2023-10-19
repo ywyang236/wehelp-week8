@@ -11,9 +11,9 @@ function handleMapClick(target) {
       ? group.getAttribute("name")
       : target.getAttribute("name");
 
-    let bbox = target.getBBox();
-    let relX = bbox.x;
-    let relY = bbox.y;
+    let bbox = target.getBoundingClientRect();
+    let relX = bbox.x - taiwanMap.getBoundingClientRect().x;
+    let relY = bbox.y - taiwanMap.getBoundingClientRect().y;
 
     mouseDiv.style.left = `${relX}px`;
     mouseDiv.style.top = `${relY}px`;

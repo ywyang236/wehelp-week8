@@ -1,49 +1,48 @@
-.weather-area__container{
+.weather-area__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #666666;
 }
 
-.content__weatherDetail--overview{
-    width: 500px;
-    height: 150px;
+.content__weatherDetail--overview {
+    width: 580px;
+    height: 200px;
     border-radius: 5px;
-    /* box-shadow: 0 1px 5px 6px #021217; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: white;
-    color: black;
+    background-color: #E3F2FE;
 }
 
-.overview__img{
-    background-size: 100%;
+.overview__img {
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     height: 180px;
     flex: 30%;
-    left: 20px;
 }
 
-.overview__info{
+.overview__info {
     flex: 60%;
     margin-left: 10px;
 }
 
-.info__Main{
+.info__Main {
     display: flex;
     justify-content: space-between;
 }
 
-.info__areaName{
+.info__areaName {
     font-size: 40px;
     font-weight: 800;
     flex: 50%;
+    color: #20496B;
 }
 
-.info__areaDT{
+.info__areaDT {
     flex: 50%;
     font-size: 20px;
     font-weight: 500;
@@ -51,23 +50,23 @@
     flex-direction: column;
 }
 
-.info__Detail{
+.info__Detail {
     margin-top: 15px;
     display: flex;
 }
 
-.title{
+.title {
     font-size: 18px;
     font-weight: 500;
     width: 100%;
 }
 
-.content{
+.content {
     font-weight: 500;
 }
 
-.dn__info{
-    width: 500px;
+.dn__info {
+    width: 580px;
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
@@ -75,25 +74,23 @@
 }
 
 .day,
-.night{
+.night {
+    max-width: 550px;
     width: 48%;
-    height: 130px;
+    height: 170px;
     border-radius: 5px;
-    box-shadow: 0 1px 5px 3px #41cbf5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
-    background-color: white;
-    color: black;
+    background-color: #E3F2FE;
 }
 
-.night{
-    box-shadow: 0 1px 5px 3px #066987;
+.night {
+    background-color: #E3F2FE;
 }
 
 .day__time,
-.night__time{
+.night__time {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -101,7 +98,7 @@
     justify-content: center;
     border-radius: 5px 0px 0px 5px;
     flex: 10%;
-    font-weight: 700;
+    font-weight: 500;
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: 5px;
@@ -109,14 +106,14 @@
 }
 
 .day__time span,
-.night__time span{
+.night__time span {
     flex: 20%;
     display: flex;
     align-items: center;
 }
 
 .day__info,
-.night__info{
+.night__info {
     flex: 50%;
     margin-left: 15px;
     display: flex;
@@ -125,20 +122,19 @@
 }
 
 #day__Period,
-#night_Period{
+#night_Period {
     width: inherit;
-    font-weight: 500;
 }
 
 #day__Temp,
 #day__Rain,
 #night__Temp,
-#night__Rain{
+#night__Rain {
     width: inherit;
 }
 
 .day__img,
-.night__img{
+.night__img {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -146,20 +142,19 @@
     flex: 25%;
 }
 
-.weekly{
-    width: 500px;
-    height: 150px;
+.weekly {
+    width: 580px;
+    height: 180px;
     border-radius: 5px;
-    box-shadow: 0 1px 5px 2px #aad7e5;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    background-color: white;
-    color: black;
+    color: #666666;
+    background-color: #E3F2FE;
 }
 
-.weekly__each{
+.weekly__each {
     flex: 15%;
     border: red;
     display: flex;
@@ -168,13 +163,13 @@
     text-align: center;
 }
 
-.weekly__title{
-    font-weight: 1000;
+.weekly__title {
+    font-weight: 500;
     width: inherit;
     height: 10%;
 }
 
-.weekly__img{
+.weekly__img {
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
@@ -184,7 +179,7 @@
     height: 80px;
 }
 
-.weekly__Temp{
+.weekly__Temp {
     width: inherit;
     height: 10%;
     font-weight: 400;

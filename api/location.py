@@ -26,7 +26,7 @@ def get_daily_data():
     location_list = [{ "code": "01", "name": "基隆市" },
                     { "code": "02", "name": "臺北市" },
                     { "code": "03", "name": "新北市" },
-                    { "code": "04", "name": "桃園縣" },
+                    { "code": "04", "name": "桃園市" },
                     { "code": "05", "name": "新竹市" },
                     { "code": "06", "name": "新竹縣" },
                     { "code": "07", "name": "苗栗縣" },
