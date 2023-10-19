@@ -37,16 +37,16 @@
 
 - 點擊地圖後左側會顯示相對應的資料
 
-<img src="static/images/readme/taiwan.gif" />
+<img src="static/images/readme/taiwan.gif" width="800px" />
 
 - 可根據上方列表選擇顯示，且地圖選擇可同時連動更新至列表
 
-<img src="static/images/readme/location-list.gif" />
+<img src="static/images/readme/location-list.gif" width="800px" />
 
 - RWD 頁面展示（1200px 以下）
 
-<img src="static/images/readme/rwd-1200.gif" />
+<img src="static/images/readme/rwd-1200.gif" width="400px" />
 
 - RWD 頁面展示（640px 以下）
 
-<img src="static/images/readme/rwd-640.gif" />
+<img src="static/images/readme/rwd-640.gif" width="400px" />
