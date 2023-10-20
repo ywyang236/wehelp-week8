@@ -135,7 +135,9 @@
 }
 
 #day__Temp br,
-#night__Temp br {
+#night__Temp br,
+#day__Rain br,
+#night__Rain br {
     display: none;
 }
 
@@ -208,10 +210,11 @@
     .title:last-child {margin-top: 5px;}
     .title br {display: none;}
     .content {margin-left: 10px;}
-    #info__temp span {margin-left: 46px;}
+    #info__temp span {margin-left: 70px;}
+    #info__Rain span {margin-left: 34px;}
     .dn {width: 100%;}
     .dn__info {width: 100%;}
-    #day__Temp br, #night__Temp br {display: block;}
+    #day__Temp br, #night__Temp br, #day__Rain br, #night__Rain br {display: block;}
     .weekly {width: 100%; flex-wrap: wrap;}
     .weekly__each {flex: 25%;}
     #weekly__4, #weekly__5, #weekly__6 {margin-top: 20px;}
@@ -220,4 +223,9 @@
 
 @media (max-width: 500px) {
     .weekly__img {height: 100px;}
+}
+
+@media (max-width: 365px) {
+    #info__temp span {margin-left: 66px;}
+    #info__Rain span {margin-left: 30px;}
 }

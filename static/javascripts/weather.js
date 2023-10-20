@@ -1,7 +1,30 @@
+// 一天的時間區分和顯示
+let getTimeDisplay = function(p){
+    let t
+    let c
+    if (p == "12:00 - 18:00"){
+        t = "今日白天"
+        c = "#16a8d4"
+    }
+    else if (p == "00:00 - 06:00") {
+        t = "今夜明晨"
+        c = "#021217"
+    }
+    else if (p == "06:00 - 18:00") {
+        t = "明日白天"
+        c = "#16a8d4"
+    }
+    else if (p == "18:00 - 06:00") {
+        t = "晚上清晨"
+        c = "#20496B"
+    }
+    return {"text" : t, "color" : c}
+}
+
 // 天氣圖像分類和顯示
 let getWeatherIcon = function (wx,t) {
     wx = parseInt(wx)
-    if (t == "06:00 - 18:00"){
+    if (t == "06:00 - 18:00" || t == "12:00 - 18:00"){
         if ([15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 41].includes(wx)) {
             img = "/static/images/weather/isThunderstorm.svg"
         }
@@ -72,7 +95,9 @@ let getData = function (src) {
             let weatherDate = weatherToday["startTime"].slice(0, 10)
             let yy = weatherDate.slice(0,4)
             let mm = weatherDate.slice(5,7)
+            mm = String(mm).padStart(2, "0")
             let dd = weatherDate.slice(8,10)
+            dd = String(dd).padStart(2, "0")
             let cleanWeatherDate = yy + " - " + mm + " - " + dd
             infoAreaDate.innerText = cleanWeatherDate;
 
@@ -88,20 +113,11 @@ let getData = function (src) {
             // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 時段
             nightPeriod.innerText = weatherNight["descriptionTime"];
             const night__Period = document.querySelector("#night__Period")
-            const night = document.querySelector(".night")
             const night__time = document.querySelector(".night__time")
-            if (night__Period.innerText == "00:00 - 06:00") {
-                night_time_t.innerText = "今夜明晨"
-                night__time.style.backgroundColor = "#021217"
-            }
-            else if (night__Period.innerText == "06:00 - 18:00") {
-                night_time_t.innerText = "明日白天"
-                night__time.style.backgroundColor = "#16a8d4"
-            }
-            else {
-                night_time_t.innerText = "晚上清晨"
-                night__time.style.backgroundColor = "#093d4d"
-            }
+            getTimeDisplay(night__Period.innerText)
+            let display = getTimeDisplay(night__Period.innerText)
+            night_time_t.innerText = display["text"]
+            night__time.style.backgroundColor = display["color"]
 
             // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 氣溫
             nightTemp_span.innerText = weatherNight["minT"] + " - " + weatherNight["maxT"];
@@ -112,20 +128,11 @@ let getData = function (src) {
             // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 時段
             dayPeriod.innerText = weatherTmr["descriptionTime"];
             const day__Period = document.querySelector("#day__Period")
-
             const day__time = document.querySelector(".day__time")
-            if (day__Period.innerText == "00:00 - 06:00") {
-                day_time_t.innerText = "今夜明晨"
-                day__time.style.backgroundColor = "#021217"
-            }
-            else if (day__Period.innerText == "06:00 - 18:00") {
-                day_time_t.innerText = "明日白天"
-                day__time.style.backgroundColor = "#16a8d4"
-            }
-            else {
-                day_time_t.innerText = "晚上清晨"
-                day__time.style.backgroundColor = "#20496B"
-            }
+            getTimeDisplay(day__Period.innerText)
+            display = getTimeDisplay(day__Period.innerText)
+            day_time_t.innerText = display["text"]
+            day__time.style.backgroundColor = display["color"]
 
             // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 氣溫
             dayTemp_span.innerText = weatherTmr["minT"] + " - " + weatherTmr["maxT"];
@@ -275,7 +282,7 @@ const nightTemp_span = document.querySelector("#night__Temp span");
 // 主畫面 > 細節 > 詳情 > 晚上 > 詳情 > 降雨
 const nightRain = document.createElement("div");
 nightRain.id = "night__Rain";
-nightRain.innerHTML = `<div>降雨機率：<span></span></div>`;
+nightRain.innerHTML = `<div>降雨機率：<br/><span></span></div>`;
 night_info.appendChild(nightRain);
 const nightRain_span = document.querySelector("#night__Rain span");
 
@@ -312,7 +319,7 @@ const dayTemp_span = document.querySelector("#day__Temp span");
 // 主畫面 > 細節 > 詳情 > 白天 > 詳情 > 降雨
 const dayRain = document.createElement("div");
 dayRain.id = "day__Rain";
-dayRain.innerHTML = `<div>降雨機率：<span></span></div>`;
+dayRain.innerHTML = `<div>降雨機率：<br/><span></span></div>`;
 day_info.appendChild(dayRain);
 const dayRain_span = document.querySelector("#day__Rain span");
 
