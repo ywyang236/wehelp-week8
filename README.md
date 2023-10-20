@@ -30,11 +30,11 @@
     - 各項功能的整合連動，以及版面樣式設計調整
 
 - 徐欣彤 [<img src="static/images/readme/link.png" style="line-height:18px" height="18px"/>](https://github.com/Angel-Tsui)
+    - 整體版面RWD
     - 天氣預報的排版和資料顯示
         - 天氣圖形的分類和顯示
-        - 一天三個時段，每一個框均可根據時段互換，按照資料的時段調整顔色和内容
-        - 一周的佈局
-        - 整體版面 RWD
+        - 一天，三個時段，每一個框均可根據時段互換，按照資料的時段調整顔色和内容
+        - 一周的樣式佈局
 
 - 陳佳欣 [<img src="static/images/readme/link.png" style="line-height:18px" height="18px"/>](https://github.com/stella0320)
     - 臺灣各縣市天氣預報 - 今明 36 小時天氣預報 API
