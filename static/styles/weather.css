@@ -135,7 +135,9 @@
 }
 
 #day__Temp br,
-#night__Temp br {
+#night__Temp br,
+#day__Rain br,
+#night__Rain br {
     display: none;
 }
 
@@ -214,6 +216,7 @@
 }
 
 @media (max-width: 640px) {
+<<<<<<< HEAD
     .content__weatherDetail--overview {
         width: 100%;
         margin-bottom: 10px
@@ -295,4 +298,33 @@
     .weekly__img {
         height: 100px;
     }
+=======
+    .content__weatherDetail--overview {width: 100%; margin-bottom: 10px}
+    .overview__img {height: 100%}
+    .info__Main {flex-direction: column;}
+    .info__areaDT {flex-direction: row; font-size: 15px; margin-top: 5px; flex: none;}
+    #info__areaTime {margin-left: 13px;}
+    .info__Detail {flex-direction: column;}
+    .title:last-child {margin-top: 5px;}
+    .title br {display: none;}
+    .content {margin-left: 10px;}
+    #info__temp span {margin-left: 70px;}
+    #info__Rain span {margin-left: 34px;}
+    .dn {width: 100%;}
+    .dn__info {width: 100%;}
+    #day__Temp br, #night__Temp br, #day__Rain br, #night__Rain br {display: block;}
+    .weekly {width: 100%; flex-wrap: wrap;}
+    .weekly__each {flex: 25%;}
+    #weekly__4, #weekly__5, #weekly__6 {margin-top: 20px;}
+    .weekly__img {height: 120px;}
+}
+
+@media (max-width: 500px) {
+    .weekly__img {height: 100px;}
+}
+
+@media (max-width: 365px) {
+    #info__temp span {margin-left: 66px;}
+    #info__Rain span {margin-left: 30px;}
+>>>>>>> c002c5439da60f8c799858ba42058115ca6e7acf
 }
