@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Noto Sans TC;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 34px;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.homepage_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navigation {
+    background-color: #16a8d4;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100vw;
+    height: 54px;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    display: none;
+}
+
+.navigation_container {
+    width: 92%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation_left,
+.navigation_right {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+}
+
+.navigation_button {
+    border-style: hidden;
+    background-color: #197AC8;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 13.3px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navigation_button:hover {
+    background-color: #13558b;
+}
+
+footer {
+    background-color: #b8b8b8;
+    color: white;
+    display: flex;
+    height: 104px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.loading_screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wave {
+    position: relative;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wave_text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #448899;
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.wave>div {
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to bottom, #448899, #66AABB);
+    animation: waveAnim 1s infinite ease-in-out;
+    transform-origin: center;
+    border-radius: 5px;
+}
+
+.wave>div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.wave>div:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.wave>div:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.wave>div:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes waveAnim {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.5);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.wave_dot {
+    opacity: 0;
+    animation: fadeIn 1s infinite;
+    padding: 2px;
+}
+
+.wave_dot:nth-child(1) {
+    animation-delay: 0.25s;
+}
+
+.wave_dot:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.wave_dot:nth-child(3) {
+    animation-delay: 0.75s;
+}

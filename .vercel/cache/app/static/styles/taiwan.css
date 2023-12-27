@@ -1,0 +1,59 @@
+.taiwan-area__container {
+  height: 610px;
+  position: relative;
+  overflow: hidden;
+}
+
+.taiwan-area__svg {
+  transform: scale(0.9) translateY(-90px);
+}
+
+.taiwan-area__mouse {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background: rgba(26, 60, 76, 0.85);
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  position: absolute;
+  display: none;
+}
+
+.taiwan-area__block {
+  cursor: pointer;
+  outline: none;
+  fill: #e3f2fe;
+  transition: transform 0.4s;
+}
+
+.taiwan-area__block:hover,
+.taiwan-area__block--active {
+  fill: #16a8d4;
+  transform: translate(-2px, -2px);
+}
+
+@media (max-width: 530px) {
+  .taiwan-area__container {height: 600px;}
+  .taiwan-area__svg {transform: scale(0.9) translateY(-90px);}
+}
+
+@media (max-width: 500px) {
+  .taiwan-area__container {height: 600px;}
+  .taiwan-area__svg {transform: scale(0.93) translateY(-100px);}
+}
+
+@media (max-width: 450px) {
+  .taiwan-area__container {height: 550px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-125px);}
+}
+
+@media (max-width: 400px) {
+  .taiwan-area__container {height: 480px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-170px);}
+}
+
+@media (max-width: 370px) {
+  .taiwan-area__container {height: 480px;}
+  .taiwan-area__svg {transform: scale(0.98) translateY(-190px);}
+}
