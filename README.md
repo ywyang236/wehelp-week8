@@ -1,27 +1,27 @@
-# 第七組 - 氣象資訊站
+### 第七組 - 氣象資訊站
 
-<font size="5">網址：http://34.214.175.62:3500/</font><br/>
-<font size="5">成員：楊于葳（組長）、徐欣彤、陳佳欣、張嘉媛、丁育如</font>
+網址：http://34.211.88.122:3500//
+成員：楊于葳（組長）、徐欣彤、陳佳欣、張嘉媛、丁育如
 
-## Demo
+#### Demo
 
-- 點擊地圖後左側會顯示相對應的資料
+##### (１) 點擊地圖後左側會顯示相對應的資料
 
 <img src="static/images/readme/taiwan.gif" width="800px" />
 
-- 可根據上方列表選擇顯示，且地圖選擇可同時連動更新至列表
+##### (２) 可根據上方列表選擇顯示，且地圖選擇可同時連動更新至列表
 
 <img src="static/images/readme/location-list.gif" width="800px" />
 
-- RWD 頁面展示（1200px 以下）
+##### (３) RWD 頁面展示（1200px 以下）
 
 <img src="static/images/readme/rwd-1200.gif" width="400px" />
 
-- RWD 頁面展示（640px 以下）
+##### (４) RWD 頁面展示（640px 以下）
 
 <img src="static/images/readme/rwd-640.gif" width="400px" />
 
-## 組內分工
+#### 組內分工
 - 組長／楊于葳 [<img src="static/images/readme/link.png" style="line-height:18px" height="18px"/>](https://github.com/ywyang236)
     - 取得團隊信任
     - 繪製網站設計圖初稿、建立基礎專案程式架構
@@ -37,7 +37,8 @@
         - 一周的樣式佈局
 
 - 陳佳欣 [<img src="static/images/readme/link.png" style="line-height:18px" height="18px"/>](https://github.com/stella0320)
-    - 臺灣各縣市天氣預報 - 今明 36 小時天氣預報 API
+    - 臺灣各縣市天氣預報 
+    - 今明 36 小時天氣預報 API
     - 臺灣縣市資料 API
     - 專案部署到 AWS
 
